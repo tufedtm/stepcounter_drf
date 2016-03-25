@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from .models import StepUser, StepUserHistory
+from .serializers import StepUserSerializer, StepUserHistorySerializer
+
+
+class StepUserHistoryViewSet(viewsets.ModelViewSet):
+    queryset = StepUserHistory.objects.all()
+    serializer_class = StepUserHistorySerializer
+
+
+class StepUserViewSet(viewsets.ModelViewSet):
+    queryset = StepUser.objects.all()
+    serializer_class = StepUserSerializer
